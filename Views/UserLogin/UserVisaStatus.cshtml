@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewBag.Title = "UserVisaStatus";
+    Layout = "~/Views/Shared/_LayoutPageUser.cshtml";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="text-center">Visa status</h2>
+
+                    @if (Session["emailid"] != null)
+                    {
+                        <h2 class="text-center">welcome @Session["emailid"].ToString()</h2>
+
+                        
+                        <table style="margin: 0 auto;">
+                            <tr>
+                                <th>First Name:</th>
+                                <td>@Model.FirstName</td>
+                            </tr>
+                            <tr>
+                                <th>Last Name:</th>
+                                <td>@Model.LastName</td>
+                            </tr>
+
+                            <tr>
+                                <th>Expected Date of Arrival:</th>
+                                <td>@Model.ExpectedDateOfArrival.ToShortDateString()</td>
+                            </tr>
+                            <tr>
+                                <th>Expected Date of Departure:</th>
+                                <td>@Model.ExpectedDateOfDeparture.ToShortDateString()</td>
+                            </tr>
+                            <tr>
+                                <th>Visa Service:</th>
+                                <td>@Model.VisaService</td>
+                            </tr>
+
+                            <tr>
+                                <th>Nationality:</th>
+                                <td>@Model.Nationality</td>
+                            </tr>
+
+
+                            <tr>
+                                <th>PassportNumber:</th>
+                                <td>@Model.PassportNumber</td>
+                            </tr>
+                            <tr>
+                                <th>Port of Arrival:</th>
+                                <td>@Model.PortOfArrival</td>
+                            </tr>
+
+
+
+                            <tr>
+                                <th>Application Status:</th>
+                                <td>@Model.Status</td>
+                            </tr>
+                        </table>
+
+                    }
+                    <a href="@Url.Action("ExportPDF","UserLogin")">Download</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
